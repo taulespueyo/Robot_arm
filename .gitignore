@@ -1,1 +1,9 @@
-
+# R project-specific ignores
+.Rhistory
+.RData
+.Rproj.user/
+.Rproj
+__pycache__/
+*.pyc
+*.RDS
+.DS_Store
