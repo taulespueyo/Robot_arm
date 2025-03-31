@@ -1,15 +1,18 @@
 # Robot_arm
 Prediction of the position inaccuracy of a robot arm at different payloads, speed, temperature and positions in R.  It includes data collection, model training, and control logic.
 
+
 ## 📸 Demo
 
 ![demo](media/demo.gif)
+
 
 ## 🧠 Features
 
 - ML model to [describe behavior]
 - Control logic using [libraries or hardware]
 - Data preprocessing and visualization
+
 
 ## 📁 Structure
 
@@ -33,6 +36,7 @@ robot-arm-ml/
 
 1. Install required R packages  
 2. Run the scripts in `scripts/`  
+
 
 ## 🙋‍♂️ Author
 
