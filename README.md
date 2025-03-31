@@ -37,6 +37,16 @@ robot-arm-ml/
 1. Install required R packages  
 2. Run the scripts in `scripts/`  
 
+or
+
+1. Clone the repo  
+   `git clone https://github.com/taulespueyo/Robot_arm.git`
+
+2. Install dependencies  
+   `pip install -r requirements.txt`
+
+3. Run inference  
+   `python src/ml/run_model.py`
 
 ## 🙋‍♂️ Author
 
