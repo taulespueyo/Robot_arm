@@ -1,4 +1,4 @@
-# Robot_arm
+# robot_arm
 Prediction of the position inaccuracy of a robot arm at different payloads, speed, temperature and positions in R.  It includes data collection, model training, and control logic.
 
 
