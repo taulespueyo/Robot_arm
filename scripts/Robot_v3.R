@@ -53,9 +53,9 @@ robot_df1 <- read.csv("robot_df1.csv")
 for (i in 1:6){
   column_name <- paste0("dev_", i)
   robot_df_dev <- robot_df1 %>% mutate(!!sym(paste0("pos_dev_",i)) := .data[[paste0("ROBOT_ACTUAL_JOINT_POSITIONS..J",i,".")]] - .data[[paste0("ROBOT_TARGET_JOINT_POSITIONS..J",i,".")]],
-                                       !!sym(paste0("vel_dev_",i)) := .data[[paste0("ROBOT_ACTUAL_JOINT_POSITIONS..J",i,".")]] - .data[[paste0("ROBOT_TARGET_JOINT_POSITIONS..J",i,".")]],
-                                       !!sym(paste0("tor_dev_",i)) := .data[[paste0("ROBOT_ACTUAL_JOINT_POSITIONS..J",i,".")]] - .data[[paste0("ROBOT_TARGET_JOINT_POSITIONS..J",i,".")]],
-                                       !!sym(paste0("curr_dev_",i)) := .data[[paste0("ROBOT_ACTUAL_JOINT_POSITIONS..J",i,".")]] - .data[[paste0("ROBOT_TARGET_JOINT_POSITIONS..J",i,".")]])
+                                    !!sym(paste0("vel_dev_",i)) := .data[[paste0("ROBOT_ACTUAL_JOINT_POSITIONS..J",i,".")]] - .data[[paste0("ROBOT_TARGET_JOINT_POSITIONS..J",i,".")]],
+                                    !!sym(paste0("tor_dev_",i)) := .data[[paste0("ROBOT_ACTUAL_JOINT_POSITIONS..J",i,".")]] - .data[[paste0("ROBOT_TARGET_JOINT_POSITIONS..J",i,".")]],
+                                    !!sym(paste0("curr_dev_",i)) := .data[[paste0("ROBOT_ACTUAL_JOINT_POSITIONS..J",i,".")]] - .data[[paste0("ROBOT_TARGET_JOINT_POSITIONS..J",i,".")]])
 }
 
 
@@ -186,12 +186,12 @@ acc_M2 <- postResample(pred = predict(robot_rf_PCA, test_pca2), obs = test_targe
 acc_test
 acc_M2
 
-
+saveRDS(robot_rf_PCA, "./robot_rf_PCA.rds")
 
 #_____ MODEL 3:a deviation model that predicts deviation using all deviations, as well as temperature, force, velocities and tool position______
 #_______________________________________________________________________________________________________________________________________________
 
-# Define input and output for predicting the accuracy of Joint 6, based on temp, force, velocity and the deviations of the other joins calculated before
+# Define input and output for predicting the accuracy of Joint 6, based all parameter given and the deviations of the other joins calculated before
 # Split data into train and test data
 # No scaling, centering and PCA performed
 
@@ -239,3 +239,4 @@ best_rf__M3 <- randomForest(
 )
 acc_M3 <- postResample(pred = unname(predict(best_rf__M3, test_robot3)), obs = test_robot3$pos_dev_6)
 
+saveRDS(robot_rf, "./datasets/home-dataset/Robot/robot_rf.rds")
