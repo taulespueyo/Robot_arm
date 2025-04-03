@@ -7,3 +7,5 @@ __pycache__/
 *.pyc
 *.RDS
 .DS_Store
+
+data/robot_df1/robot_df1.csv
